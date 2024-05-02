@@ -1,4 +1,25 @@
 services:
+  gateway:
+    image: caddy:2.8
+    ports:
+      - 3000:3000
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./data/caddy:/data/caddy
+    depends_on:
+      - api
+
+  api:
+    build: api
+    environment:
+      - DATABASE_NAME=postgres
+      - DATABASE_HOST=db
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_PORT=5432
+    depends_on:
+      - db
+
   db:
     image: postgres:16
     volumes:
@@ -13,13 +34,3 @@ services:
       timeout: 60s
       retries: 5
       start_period: 80s
-  api:
-    build: api
-    environment:
-      - DATABASE_NAME=postgres
-      - DATABASE_HOST=db
-      - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=postgres
-      - DATABASE_PORT=5432
-    depends_on:
-      - db
