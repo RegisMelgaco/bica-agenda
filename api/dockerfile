@@ -11,4 +11,4 @@ COPY ./app /code/app
 HEALTHCHECK --interval=5s --timeout=3s \
     CMD curl --fail http://localhost/heathcheck || exit 1
 
-CMD ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "3000"]
