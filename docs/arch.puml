@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Gestor
+interface "Pagina Business"
+
+actor Cliente
+interface "Pagina Cliente"
+
+boundary "WhatsApp API"
+boundary "SMS API"
+boundary "Ligação API"
+
+cloud Cloud {
+  node "Python API"
+  node Keycloak
+  node Gateway [
+    Gateway Caddy
+    ----
+    React
+    Proxy reverso
+  ]
+
+  folder StaticFiles [
+    Provedor Caddy
+    ----
+    Static Files
+  ]
+
+  database Postgres
+}
+
+note bottom of Cloud
+  Ambiente em nuvem com deploy
+  em containers Docker e
+  orquestrado via Docker Compose
+end note
+
+Gestor -- "Pagina Business"
+Admin -- "Pagina Business"
+"Pagina Business" -- Gateway
+
+Cliente -- "Pagina Cliente"
+"Pagina Cliente" -- Gateway
+
+Gateway -- "Python API"
+Gateway -right- StaticFiles
+"Python API" -left- Postgres
+"Python API" -right- Keycloak
+"Python API" -- "WhatsApp API"
+"Python API" -- "SMS API"
+"Python API" -- "Ligação API"
+@enduml
