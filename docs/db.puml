@@ -1,0 +1,48 @@
+@startchen
+
+entity calendar {
+  id : INT <<key>>
+  name : TEXT
+}
+
+entity appointment {
+  id : INT  <<key>>
+  start : DATETIME
+  duration_min : INT
+  notes: TEXT
+}
+
+entity appointment_state {
+  id : INT  <<key>>
+  description : TEXT
+}
+
+entity client {
+  id : INT <<key>>
+  name : TEXT
+  phone : TEXT
+}
+
+appointment =(N,1)= calendar
+appointment =(1,N)= appointment_state
+appointment =(1,N)= client
+
+
+
+entity confirmation_configuration {
+  id : INT <<key>>
+  advance_min : INT
+  whatsapp_enabled : BOOL
+  call_enabled : BOOL
+  sms_enabled : BOOL
+}
+
+entity appointment_confirmation {
+  id : INTEGER <<key>>
+  done : BOOL
+}
+
+confirmation_configuration =(1,1)= calendar
+appointment_confirmation =(1,1)= appointment
+
+@endchen
