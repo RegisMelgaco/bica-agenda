@@ -1,0 +1,17 @@
+.sideBar {
+
+    background-color: rgb(20, 121, 134);
+
+
+    align-items: center;
+
+}
+
+.icons{
+   
+        width: 120px;  /* Define a largura fixa */
+        height: 120px; /* Define a altura fixa */
+        padding: 25px;
+        
+    
+}

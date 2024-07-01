@@ -1,0 +1,29 @@
+.header{
+    height: 20%;
+    width: 100%;
+    background-color: #f1f1f1;
+    font-size: calc(40px);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  
+
+
+ }
+
+.icons{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p{
+    margin-left: 20px;
+}
+
+img{
+    margin-right: 20px;
+}

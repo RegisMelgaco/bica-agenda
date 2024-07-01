@@ -1,0 +1,62 @@
+.scheduleTable {
+    width: 70%;
+    /* Largura da tabela */
+    height: 200px;
+    /* Altura da tabela */
+
+    display: flex;
+    justify-content: center;
+    /* Alinha horizontalmente no centro */
+    align-items: center;
+    /* Alinha verticalmente no centro */
+
+    font-size: calc(20px);
+    color: #282c34;
+
+    background-color: #f1f1f1;
+
+
+    border-collapse: collapse;
+    /* Remove espaços entre bordas das células */
+
+}
+/* ======================================================= */
+/* Estilo geral para a tabela */
+/* Estilo geral para a tabela */
+.scheduleTable table {
+    width: 100%; /* Largura da tabela */
+    border-collapse: collapse; /* Remove espaços entre bordas das células */
+    background-color: #f0f0f0; /* Cor de fundo da tabela */
+}
+
+/* Estilo para as células de cabeçalho */
+.scheduleTable th {
+    background-color: #e0e0e0; /* Cor de fundo dos cabeçalhos */
+    font-weight: bold; /* Texto em negrito */
+    padding: 10px; /* Espaçamento interno do cabeçalho */
+    border: none; /* Remove bordas do cabeçalho */
+}
+
+/* Estilo para as células de dados */
+.scheduleTable td {
+    text-align: center; /* Centraliza o texto dentro das células */
+    vertical-align: middle; /* Centraliza o conteúdo verticalmente */
+    padding: 10px; /* Espaçamento interno das células de dados */
+    border: none; /* Remove bordas das células de dados */
+}
+
+/* Estilo para o botão */
+button {
+    width: 100%; /* Largura total do botão */
+    padding: 10px; /* Espaçamento interno do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 10px;
+    cursor: pointer; /* Cursor de ponteiro ao passar sobre o botão */
+}
+
+/* Efeito de hover para o botão */
+button:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
