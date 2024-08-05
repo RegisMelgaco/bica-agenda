@@ -30,7 +30,7 @@ services:
   db:
     image: postgres:16
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -41,3 +41,6 @@ services:
       timeout: 60s
       retries: 5
       start_period: 80s
+
+volumes:
+  pg-data:
