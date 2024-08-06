@@ -1,0 +1,1 @@
+CALENDAR_NOT_FOUND = "Calendário não encontrado."

@@ -26,6 +26,8 @@ services:
       - DATABASE_PORT=5432
     depends_on:
       - db
+    ports:
+      - 8090:3000
 
   db:
     image: postgres:16
