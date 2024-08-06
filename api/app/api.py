@@ -223,7 +223,7 @@ def create_appointment_state(appointment_state: schemas.AppointmentStateCreate, 
 def get_appointment_state(appointment_state_id: int, db: Session = Depends(get_db)):
     appointment_state = crud.get_appointment_state(db=db, appointment_state_id=appointment_state_id)
     if appointment_state is None:
-        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_NOT_FOUND)
+        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_STATE_NOT_FOUND)
     return appointment_state
 
 @app.get("/appointment_states/", response_model=list[schemas.AppointmentState])
@@ -240,14 +240,14 @@ def get_appointment_appointment_states(appointment_id: int, skip: int = 0, limit
 def update_appointment_state(appointment_state_id: int, appointment_state: schemas.AppointmentStateBase, db: Session = Depends(get_db)):
     appointment_state = crud.update_appointment_state(db=db, appointment_state_id=appointment_state_id, appointment_state=appointment_state)
     if appointment_state is None:
-        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_NOT_FOUND)
+        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_STATE_NOT_FOUND)
     return appointment_state
 
 @app.delete("/appointment_states/{appointment_state_id}", response_model=schemas.AppointmentState)
 def delete_appointment_state(appointment_state_id: int, db: Session = Depends(get_db)):
     appointment_state = crud.delete_appointment_state(db=db, appointment_state_id=appointment_state_id)
     if appointment_state is None:
-        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_NOT_FOUND)
+        raise HTTPException(status_code=404, detail=strings.APPOINTMENT_STATE_NOT_FOUND)
     return appointment_state
 
 @app.get("/heathcheck")
